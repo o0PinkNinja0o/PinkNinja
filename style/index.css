@@ -167,127 +167,129 @@ h1 {
   position: absolute;
   bottom: -80px;
   object-fit: contain;
-  animation: float 8s ease-in infinite;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  animation: float 10s ease-in infinite;
+  animation-fill-mode: forwards;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+  will-change: transform, opacity;
 }
 
 /* Size variants */
 .bubbles img.size-sm {
-  width: 35px;
-  height: 35px;
+  width: 36px;
+  height: 36px;
 }
 
 .bubbles img.size-md {
-  width: 55px;
-  height: 55px;
+  width: 58px;
+  height: 58px;
 }
 
 .bubbles img.size-lg {
-  width: 85px;
-  height: 85px;
+  width: 90px;
+  height: 90px;
   bottom: -220px;
 }
 
 .bubbles img.size-xl {
-  width: 110px;
-  height: 110px;
+  width: 112px;
+  height: 112px;
   bottom: -280px;
 }
 
 /* Animation variations */
 .bubbles img:nth-child(1) {
-  left: 3%;
-  animation-duration: 10s;
+  left: 4%;
+  animation-duration: 9.4s;
   animation-delay: 0s;
 }
 
 .bubbles img:nth-child(2) {
-  left: 8%;
-  animation-duration: 12s;
-  animation-delay: 2s;
+  left: 11%;
+  animation-duration: 11.7s;
+  animation-delay: 1.2s;
 }
 
 .bubbles img:nth-child(3) {
-  left: 15%;
-  animation-duration: 9s;
-  animation-delay: 1s;
+  left: 18%;
+  animation-duration: 10.2s;
+  animation-delay: 0.4s;
 }
 
 .bubbles img:nth-child(4) {
-  left: 22%;
-  animation-duration: 11s;
-  animation-delay: 3s;
+  left: 24%;
+  animation-duration: 12.1s;
+  animation-delay: 1.1s;
 }
 
 .bubbles img:nth-child(5) {
-  left: 32%;
-  animation-duration: 9.5s;
-  animation-delay: 0.5s;
+  left: 31%;
+  animation-duration: 9.7s;
+  animation-delay: 0.8s;
 }
 
 .bubbles img:nth-child(6) {
-  left: 42%;
-  animation-duration: 12s;
-  animation-delay: 2.5s;
+  left: 38%;
+  animation-duration: 11.4s;
+  animation-delay: 1.6s;
 }
 
 .bubbles img:nth-child(7) {
-  left: 52%;
-  animation-duration: 10s;
-  animation-delay: 1.5s;
+  left: 45%;
+  animation-duration: 10.6s;
+  animation-delay: 0.5s;
 }
 
 .bubbles img:nth-child(8) {
-  left: 62%;
-  animation-duration: 13s;
-  animation-delay: 3.5s;
+  left: 52%;
+  animation-duration: 12.3s;
+  animation-delay: 2.0s;
 }
 
 .bubbles img:nth-child(9) {
-  left: 15%;
-  animation-duration: 11s;
-  animation-delay: 1s;
+  left: 58%;
+  animation-duration: 10.9s;
+  animation-delay: 1.0s;
 }
 
 .bubbles img:nth-child(10) {
-  left: 48%;
-  animation-duration: 12s;
-  animation-delay: 2s;
+  left: 66%;
+  animation-duration: 9.1s;
+  animation-delay: 0.6s;
 }
 
 .bubbles img:nth-child(11) {
-  left: 82%;
-  animation-duration: 10s;
-  animation-delay: 1.5s;
+  left: 72%;
+  animation-duration: 11.8s;
+  animation-delay: 1.7s;
 }
 
 .bubbles img:nth-child(12) {
-  left: 92%;
-  animation-duration: 9.5s;
-  animation-delay: 3s;
+  left: 80%;
+  animation-duration: 10.4s;
+  animation-delay: 0.9s;
 }
 
 .bubbles img:nth-child(13) {
-  left: 5%;
-  animation-duration: 11s;
-  animation-delay: 4.5s;
+  left: 86%;
+  animation-duration: 12.0s;
+  animation-delay: 1.3s;
 }
 
 .bubbles img:nth-child(14) {
-  left: 35%;
-  animation-duration: 10s;
-  animation-delay: 5s;
+  left: 92%;
+  animation-duration: 9.8s;
+  animation-delay: 0.7s;
 }
 
 .bubbles img:nth-child(15) {
-  left: 28%;
-  animation-duration: 11s;
-  animation-delay: 2s;
+  left: 21%;
+  animation-duration: 11.5s;
+  animation-delay: 2.4s;
 }
 
 .bubbles img:nth-child(16) {
-  left: 62%;
-  animation-duration: 9.5s;
+  left: 68%;
+  animation-duration: 10.7s;
   animation-delay: 1.5s;
 }
 
