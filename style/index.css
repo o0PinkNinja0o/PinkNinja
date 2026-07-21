@@ -285,55 +285,6 @@ h1 {
   animation-delay: 1.5s;
 }
 
-/* Rare images with major delays */
-.bubbles img:nth-child(17) {
-  left: 25%;
-  animation-duration: 14s;
-  animation-delay: 7s;
-}
-
-.bubbles img:nth-child(18) {
-  left: 55%;
-  animation-duration: 15s;
-  animation-delay: 8.5s;
-}
-
-.bubbles img:nth-child(19) {
-  left: 12%;
-  animation-duration: 16s;
-  animation-delay: 9s;
-}
-
-.bubbles img:nth-child(20) {
-  left: 80%;
-  animation-duration: 17s;
-  animation-delay: 10s;
-}
-
-.bubbles img:nth-child(21) {
-  left: 38%;
-  animation-duration: 12s;
-  animation-delay: 6.5s;
-}
-
-.bubbles img:nth-child(22) {
-  left: 68%;
-  animation-duration: 13s;
-  animation-delay: 7.5s;
-}
-
-.bubbles img:nth-child(23) {
-  left: 18%;
-  animation-duration: 11s;
-  animation-delay: 5.5s;
-}
-
-.bubbles img:nth-child(24) {
-  left: 75%;
-  animation-duration: 14s;
-  animation-delay: 8s;
-}
-
 @keyframes float {
   0% {
     transform: translateY(0) scale(1);

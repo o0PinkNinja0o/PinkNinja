@@ -15,11 +15,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create deployment branch
+      - name: Prepare site files
         run: |
+          rm -rf .git
+          mkdir -p public
+          cp -R . public/ 2>/dev/null || true
+          cd public
+          find . -maxdepth 1 -mindepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -R ../html ../images ../style ../index.html . 2>/dev/null || true
+
+      - name: Deploy to gh-pages
+        run: |
+          git init
           git checkout -B gh-pages
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Deploy site" || echo "No changes to commit"
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/o0PinkNinja0o/PinkNinja.git
           git push origin gh-pages --force
