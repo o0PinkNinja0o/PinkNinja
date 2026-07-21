@@ -47,14 +47,6 @@ body {
   animation-duration: 16s;
 }
 
-.site-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  flex: 1 1 auto;
-  align-items: center;
-}
-
 .layout {
   display: flex;
   gap: 28px;
@@ -67,41 +59,112 @@ body {
 }
 
 .window {
-  flex: 0 0 380px;
-  width: 380px;
-  padding: 32px 28px;
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  padding: 36px 32px;
   border: 3px solid #20162d;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 22px 50px rgba(24, 13, 38, 0.16);
 }
 
-/* Hero / Banner */
-.hero { width: 100%; margin-bottom: 18px; display:block; }
-.hero-banner {
-  width: min(100%, 900px);
-  margin: 0 auto;
-  height: 260px;
-  border: 3px solid #d23b6b;
-  border-radius: 8px;
-  background: linear-gradient(90deg,#1b1b1d 0%, #2c2930 100%);
-  color: #fff;
+.profile-panel {
+  flex: 0 0 240px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.profile-card {
+  width: 240px;
+  height: 240px;
+  padding: 18px;
+  border: 3px solid #20162d;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 22px 50px rgba(24, 13, 38, 0.16);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
-.hero-title { margin: 0; font-size: 1.6rem; }
-.hero-sub { margin: 8px 0 14px; opacity: 0.9; }
-.hero-ctas { display:flex; gap:12px; }
 
-.eyebrow {
+.profile-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 760px;
+}
+
+.speech-bubble {
+  position: relative;
+  max-width: 560px;
+  padding: 22px 24px;
+  border: 3px solid #20162d;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 18px 35px rgba(24, 13, 38, 0.12);
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 32px;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  transform: rotate(45deg);
+  border-left: 3px solid #20162d;
+  border-bottom: 3px solid #20162d;
+}
+
+.speech-bubble p {
+  margin: 0;
+  color: #2d1639;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.window-header h1 {
+  margin: 0 0 14px;
+}
+
+.intro-card {
+  padding: 22px;
+  border: 2px solid rgba(32, 22, 45, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+}
+
+.intro-card h2 {
   margin: 0 0 10px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.32em;
-  color: #7f4f95;
+  font-size: 1.1rem;
+  color: #5c3574;
+}
+
+.intro-card p {
+  margin: 0;
+  color: #4c2b57;
+  line-height: 1.7;
+}
+
+.directory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 h1 {
@@ -115,12 +178,6 @@ h1 {
   font-size: 1rem;
   line-height: 1.7;
   color: #4c2b57;
-}
-
-.directory {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .dir-btn {
@@ -142,13 +199,6 @@ h1 {
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(24, 13, 38, 0.15);
 }
-
-/* Video banner styles */
-.hero-banner { position: relative; overflow: hidden; }
-.hero-overlay { position: absolute; inset: 0; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding: 28px; gap:10px; }
-.hero-overlay .hero-title { color:#fff; text-shadow:0 6px 18px rgba(0,0,0,0.45); }
-.hero-overlay .hero-sub { color: rgba(255,255,255,0.92); }
-.hero-overlay .dir-btn { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); color:#fff; }
 
 .bubbles {
   position: fixed;
@@ -327,23 +377,28 @@ h1 {
 
   .window {
     width: 100%;
-    max-width: 420px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
-  /* Make hero overlay span the full viewport on narrow screens */
-  .hero-banner {
-    width: 100vw;
-    max-width: none;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    border-radius: 0;
-    height: 220px;
+  .profile-panel,
+  .content-panel {
+    width: 100%;
+    max-width: 560px;
   }
 
-  .hero-overlay {
-    padding: 18px;
-    align-items: center;
-    text-align: center;
+  .profile-card {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+
+  .speech-bubble {
+    width: 100%;
+    max-width: none;
+  }
+
+  .speech-bubble::after {
+    left: 20px;
   }
 }
