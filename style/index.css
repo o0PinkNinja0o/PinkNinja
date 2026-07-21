@@ -151,10 +151,16 @@ h1 {
 .hero-overlay .dir-btn { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); color:#fff; }
 
 .bubbles {
-  position: absolute;
+  position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  z-index: 0;
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
 }
 
 .bubbles img {
