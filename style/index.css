@@ -83,8 +83,10 @@ body {
   height: 240px;
   padding: 14px;
   border-radius: 24px;
-  background: url(../images/homepage/tvboarder.png) center/center no-repeat;
-  background-size: contain;
+  background-image: url(../images/homepage/tvboarder.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
   box-shadow: 0 22px 50px rgba(24, 13, 38, 0.16);
   display: flex;
   align-items: center;
@@ -92,8 +94,8 @@ body {
 }
 
 .profile-card img {
-  width: 84%;
-  height: 84%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
 }
 
@@ -108,11 +110,13 @@ body {
 .speech-bubble {
   position: relative;
   max-width: 560px;
-  min-height: 140px;
-  padding: 38px 32px;
+  min-height: 180px;
+  padding: 36px 30px;
   border: none;
   border-radius: 32px;
-  background: url(../images/homepage/speechbubble.png) center/center no-repeat;
+  background-image: url(../images/homepage/speechbubble.png);
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: contain;
   background-color: transparent;
   box-shadow: 0 18px 35px rgba(24, 13, 38, 0.12);
