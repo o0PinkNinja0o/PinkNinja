@@ -83,7 +83,7 @@ body {
   height: 240px;
   padding: 14px;
   border-radius: 24px;
-  background: url(../images/tvboarder.png) center/center no-repeat;
+  background: url(../images/homepage/tvboarder.png) center/center no-repeat;
   background-size: contain;
   box-shadow: 0 22px 50px rgba(24, 13, 38, 0.16);
   display: flex;
