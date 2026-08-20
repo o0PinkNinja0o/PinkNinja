@@ -109,7 +109,7 @@ body {
 .content-panel {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 18px;
   width: 100%;
   max-width: 760px;
   align-items: center;
@@ -118,14 +118,12 @@ body {
 .speech-bubble {
   position: relative;
   width: min(100%, 680px);
-  min-height: 240px;
-  padding: 46px 74px 38px 112px;
+  aspect-ratio: 768 / 170;
+  padding: 22px 42px 14px 112px;
   border: none;
   background: transparent;
-  background: url("../images/homepage/speechbubble.png") center / 100% 100% no-repeat;
+  background: url("../images/homepage/speechbubble.png") center / 100% auto no-repeat;
   box-shadow: none;
-  display: flex;
-  flex-direction: column;
 }
 
 .speech-bubble::after {
@@ -136,10 +134,9 @@ body {
   margin: 0 auto;
   max-width: 620px;
   color: #d51fc8;
-  font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.15;
   font-family: "VT323", "Courier New", monospace;
-  font-size: 1.45rem;
+  font-size: clamp(1.55rem, 2.3vw, 1.85rem);
 }
 
 .window-header h1 {
@@ -171,7 +168,6 @@ body {
   flex-wrap: wrap;
   gap: 14px;
   justify-content: center;
-  margin-top: auto;
   width: 100%;
 }
 
@@ -410,7 +406,7 @@ h1 {
   .speech-bubble {
     width: 100%;
     max-width: none;
-    padding: 38px 42px 30px 62px;
+    padding: 20px 30px 14px 62px;
   }
 
   .speech-bubble::after {
