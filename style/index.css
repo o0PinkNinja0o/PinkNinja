@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
 :root {
   color-scheme: light;
 }
@@ -10,7 +12,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-  color: #2d1639;
+  color: #d51fc8;
   overflow: hidden;
   background: url("../images/homepage/background.jpg") center/cover no-repeat;
 }
@@ -78,7 +80,7 @@ body {
 }
 
 .profile-panel {
-  flex: 0 0 320px;
+  flex: 0 0 280px;
   transform: translateX(clamp(0px, 4vw, 56px));
   display: flex;
   align-items: center;
@@ -86,8 +88,8 @@ body {
 }
 
 .profile-card {
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
   padding: 8px;
   border-radius: 24px;
   background: transparent;
@@ -107,7 +109,7 @@ body {
 .content-panel {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
   width: 100%;
   max-width: 760px;
   align-items: center;
@@ -116,12 +118,14 @@ body {
 .speech-bubble {
   position: relative;
   width: min(100%, 680px);
-  min-height: 180px;
+  min-height: 240px;
   padding: 46px 74px 38px 112px;
   border: none;
   background: transparent;
   background: url("../images/homepage/speechbubble.png") center / 100% 100% no-repeat;
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .speech-bubble::after {
@@ -131,9 +135,11 @@ body {
 .speech-bubble p {
   margin: 0 auto;
   max-width: 620px;
-  color: #2d1639;
+  color: #d51fc8;
   font-size: 1rem;
   line-height: 1.7;
+  font-family: "VT323", "Courier New", monospace;
+  font-size: 1.45rem;
 }
 
 .window-header h1 {
@@ -165,6 +171,8 @@ body {
   flex-wrap: wrap;
   gap: 14px;
   justify-content: center;
+  margin-top: auto;
+  width: 100%;
 }
 
 h1 {
@@ -185,10 +193,12 @@ h1 {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #231734;
+  color: #d51fc8;
+  font-family: "VT323", "Courier New", monospace;
+  font-size: 1.25rem;
   font-weight: 700;
   padding: 12px 16px;
-  border: 3px solid #20162d;
+  border: 3px solid #d51fc8;
   border-radius: 999px;
   background: #ffffff;
   box-shadow: 0 8px 20px rgba(24, 13, 38, 0.08);
@@ -389,17 +399,18 @@ h1 {
 
   .profile-panel {
     transform: none;
+    max-width: 320px;
   }
 
   .profile-card {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
+    width: 280px;
+    height: 280px;
   }
 
   .speech-bubble {
     width: 100%;
     max-width: none;
+    padding: 38px 42px 30px 62px;
   }
 
   .speech-bubble::after {
