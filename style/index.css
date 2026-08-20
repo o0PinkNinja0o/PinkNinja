@@ -79,6 +79,7 @@ body {
 
 .profile-panel {
   flex: 0 0 320px;
+  transform: translateX(clamp(0px, 4vw, 56px));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -384,6 +385,10 @@ h1 {
   .content-panel {
     width: 100%;
     max-width: 560px;
+  }
+
+  .profile-panel {
+    transform: none;
   }
 
   .profile-card {
