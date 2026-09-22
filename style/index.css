@@ -112,17 +112,18 @@ body {
   gap: 18px;
   width: 100%;
   max-width: 760px;
+  min-width: 0;
   align-items: center;
 }
 
 .speech-bubble {
   position: relative;
   width: min(100%, 680px);
-  aspect-ratio: 768 / 170;
+  min-height: 150px;
   padding: clamp(14px, 3vw, 22px) clamp(18px, 5vw, 42px) clamp(10px, 2vw, 14px) clamp(58px, 13vw, 112px);
   border: none;
   background: transparent;
-  background: url("../images/homepage/speechbubble.png") center / 100% auto no-repeat;
+  background: url("../images/homepage/speechbubble.png") center / 100% 100% no-repeat;
   box-shadow: none;
 }
 
@@ -370,7 +371,7 @@ h1 {
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 960px) {
   body {
     overflow: auto;
   }
