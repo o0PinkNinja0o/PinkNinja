@@ -137,7 +137,7 @@ body {
   color: #d51fc8;
   line-height: 1.1;
   font-family: "VT323", "Courier New", monospace;
-  font-size: clamp(1.2rem, 3.2vw, 1.85rem);
+  font-size: 1.85rem;
 }
 
 .window-header h1 {
@@ -408,7 +408,8 @@ h1 {
   .speech-bubble {
     width: 100%;
     max-width: none;
-    padding: clamp(14px, 5vw, 20px) clamp(18px, 7vw, 30px) clamp(10px, 3vw, 14px) clamp(52px, 14vw, 62px);
+    min-height: 0;
+    padding: clamp(14px, 5vw, 20px) clamp(18px, 7vw, 30px) clamp(10px, 3vw, 14px) clamp(72px, 16vw, 84px);
   }
 
   .directory {
