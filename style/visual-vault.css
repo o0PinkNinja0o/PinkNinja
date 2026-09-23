@@ -100,7 +100,7 @@ input::placeholder, textarea::placeholder { color: #68685f; }
 
 @keyframes blink { 50% { opacity: 0; } }
 
-@media (min-width: 961px) {
+@media (min-width: 821px) {
   h1 {
     line-height: 1;
     margin-bottom: 22px;
