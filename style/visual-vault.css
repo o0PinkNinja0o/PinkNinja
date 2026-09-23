@@ -100,6 +100,17 @@ input::placeholder, textarea::placeholder { color: #68685f; }
 
 @keyframes blink { 50% { opacity: 0; } }
 
+@media (min-width: 961px) {
+  h1 {
+    line-height: 1;
+    margin-bottom: 22px;
+  }
+
+  .subtitle {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 820px) {
   .vault-header, .vault-main, .vault-footer { width: min(100% - 28px, 600px); }
   .vault-header { padding-top: 20px; padding-bottom: 45px; }
