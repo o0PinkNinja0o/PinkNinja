@@ -7,9 +7,23 @@
   --blue: #6cc8ff;
   --ink: #090909;
   --paper: #f4f4ea;
-  margin: 0;
+  --muted: #c4c8bd;
+  --line: rgba(255, 79, 184, 0.42);
+}
+
+* { box-sizing: border-box; }
+
+body {
   min-width: 320px;
-body::after { bottom: -14vw; left: -10vw; border-color: rgba(255, 79, 184, 0.25); }
+  margin: 0;
+  color: var(--paper);
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  background-color: #10151a;
+  background-image:
+    linear-gradient(rgba(244, 244, 234, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 244, 234, 0.035) 1px, transparent 1px),
+    repeating-linear-gradient(135deg, rgba(255, 79, 184, 0.035) 0 1px, transparent 1px 12px);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
 }
 
 .vault-header,
