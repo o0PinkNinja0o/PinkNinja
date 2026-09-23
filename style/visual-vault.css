@@ -104,6 +104,7 @@ input::placeholder, textarea::placeholder { color: #68685f; }
   h1 {
     line-height: 1;
     margin-bottom: 22px;
+    white-space: nowrap;
   }
 
   .subtitle {
