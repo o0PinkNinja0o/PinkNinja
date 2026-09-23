@@ -16,10 +16,15 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--ink);
+  background-color: #07100d;
   color: var(--paper);
   font-family: "IBM Plex Mono", "Courier New", monospace;
-  background-image: linear-gradient(rgba(255, 79, 184, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 79, 184, 0.025) 1px, transparent 1px);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 79, 184, 0.12), transparent 24%),
+    radial-gradient(circle at 85% 26%, rgba(108, 200, 255, 0.1), transparent 22%),
+    radial-gradient(circle at 62% 84%, rgba(50, 255, 104, 0.08), transparent 25%),
+    linear-gradient(rgba(244, 244, 234, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 244, 234, 0.035) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -39,17 +44,6 @@ body::after {
 
 body::before { top: 8vh; right: -11vw; box-shadow: 0 0 80px rgba(50, 255, 104, 0.18); }
 body::after { bottom: -14vw; left: -10vw; border-color: rgba(255, 79, 184, 0.25); }
-
-.noise {
-  position: fixed;
-  inset: 0;
-  z-index: 5;
-  opacity: 0.06;
-  pointer-events: none;
-  background-image: url("../images/homepage/background.jpg");
-  background-size: 420px;
-  mix-blend-mode: screen;
-}
 
 .color-circles { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .color-circles span { position: absolute; display: block; border-radius: 50%; opacity: 0.25; filter: blur(2px); }
