@@ -106,12 +106,13 @@ h2 { color: var(--paper); font-size: clamp(2rem, 5vw, 3.3rem); }
 .video-entry summary::after { content: "+ OPEN VIDEO"; display: block; margin-top: 8px; color: var(--blue); font-size: 0.58rem; letter-spacing: 0.1em; text-align: right; }
 .video-entry[open] summary::after { content: "- CLOSE VIDEO"; }
 .expanded-content { padding-top: 14px; }
-.compact-preview { width: 100%; margin-top: 12px; aspect-ratio: 16 / 5; }
+.compact-preview { width: 100%; margin-top: 12px; aspect-ratio: 16 / 9; }
 .compact-preview span { font-size: 0.65rem; }
 .compact-preview small { margin-top: 4px; }
 .video-preview { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; color: var(--acid); border: 1px solid var(--line); background-color: #151510; background-image: repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(255, 79, 184, 0.08) 7px); text-align: center; }
 .horizontal-preview { aspect-ratio: 16 / 9; }
 .vertical-preview { width: min(68%, 260px); max-height: calc(100vh - 250px); margin-inline: auto; aspect-ratio: 9 / 16; }
+.vertical-grid .compact-preview { width: min(52%, 110px); aspect-ratio: 9 / 16; }
 .video-preview::before { content: ""; position: absolute; width: 68%; height: 1px; background: var(--green); transform: rotate(-25deg); opacity: 0.8; }
 .video-preview span { z-index: 1; font-size: 0.72rem; letter-spacing: 0.1em; }
 .video-preview small { z-index: 1; margin-top: 9px; color: var(--blue); font-size: 0.6rem; }
