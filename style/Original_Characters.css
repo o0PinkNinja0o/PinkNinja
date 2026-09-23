@@ -51,7 +51,7 @@ body::after {
 .archive-mark { float: right; margin: 0; color: var(--grey); }
 .title-block { clear: both; padding-top: 72px; max-width: 920px; }
 .eyebrow { margin: 0 0 12px; color: var(--red); }
-h1 { max-width: 100%; margin: 0; color: var(--paper); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(3rem, 12vw, 9rem); font-weight: 700; line-height: 0.8; letter-spacing: 0.02em; overflow-wrap: anywhere; text-shadow: none; }
+h1 { max-width: 100%; margin: 0; color: var(--paper); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(2.6rem, 7vw, 5.8rem); font-weight: 700; line-height: 0.95; letter-spacing: 0.01em; white-space: nowrap; text-shadow: none; }
 h1 em { color: var(--red); font-style: normal; }
 .title-star { color: var(--paper); font-family: "DM Mono", monospace; font-size: 0.35em; vertical-align: top; text-shadow: none; }
 .character-main { padding: 18px 0 76px; }
@@ -89,7 +89,7 @@ h1 em { color: var(--red); font-style: normal; }
   .character-header { padding-top: 30px; }
   .archive-mark { float: none; margin-top: 20px; }
   .title-block { padding-top: 54px; }
-  h1 { font-size: clamp(2.8rem, 12vw, 5.5rem); line-height: 0.9; letter-spacing: 0; }
+  h1 { width: 100%; font-size: clamp(1.45rem, 6.5vw, 2.7rem); line-height: 1; letter-spacing: 0; }
   .character-drawer summary { grid-template-columns: 34px 1fr 28px; gap: 10px; padding: 18px; }
   .character-drawer summary small { grid-column: 2 / -1; }
   .picture-grid { grid-template-columns: repeat(2, 1fr); padding: 0 18px 18px; }
