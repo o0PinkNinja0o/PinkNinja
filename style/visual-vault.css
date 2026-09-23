@@ -92,10 +92,9 @@ h2 { color: var(--paper); font-size: clamp(2rem, 5vw, 3.3rem); }
 .video-preview small { z-index: 1; margin-top: 9px; color: var(--pink); font-size: 0.6rem; }
 .entry-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; margin: 12px 0 16px; color: var(--muted); font-size: 0.58rem; }
 .entry-meta span:first-child { color: var(--acid); }
-label { display: block; margin-top: 12px; color: var(--pink); font-size: 0.62rem; letter-spacing: 0.1em; }
-input, textarea { display: block; width: 100%; margin-top: 6px; padding: 9px; border: 1px solid rgba(217, 216, 200, 0.3); border-radius: 0; outline: 0; resize: vertical; color: var(--paper); font: inherit; font-size: 0.72rem; background: #0d0d0c; }
-input:focus, textarea:focus { border-color: var(--acid); box-shadow: 0 0 0 1px var(--acid); }
-input::placeholder, textarea::placeholder { color: #68685f; }
+.archive-field { margin-top: 12px; color: var(--pink); font-size: 0.62rem; letter-spacing: 0.1em; }
+.archive-field p { min-height: 35px; margin: 6px 0 0; padding: 9px; border: 1px solid rgba(217, 216, 200, 0.3); color: #68685f; font: inherit; font-size: 0.72rem; line-height: 1.5; letter-spacing: 0; background: #0d0d0c; }
+.archive-field:last-child p { min-height: 76px; }
 .vault-footer { display: flex; justify-content: space-between; gap: 15px; padding: 0 0 34px; color: var(--muted); }
 
 @keyframes blink { 50% { opacity: 0; } }
