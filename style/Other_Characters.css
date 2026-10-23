@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:wght@400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  --paper: #f8edf0;
+  --muted: #c1aeb6;
+  --ink: #171217;
+  --panel: #241b23;
+  --rose: #e9a6bc;
+  --wine: #70253f;
+  --line: rgba(248, 237, 240, 0.42);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--paper);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  background:
+    radial-gradient(ellipse at 78% 18%, rgba(112, 37, 63, 0.28), transparent 34rem),
+    radial-gradient(rgba(248, 237, 240, 0.11) 0.7px, transparent 0.7px),
+    var(--ink);
+  background-size: auto, 6px 6px, auto;
+}
+
+body::before {
+  position: fixed;
+  inset: 10px;
+  z-index: -1;
+  content: "";
+  border: 1px solid rgba(233, 166, 188, 0.72);
+  pointer-events: none;
+}
+
+.lace-frame {
+  position: fixed;
+  inset: 17px;
+  z-index: 4;
+  border: 1px dashed rgba(248, 237, 240, 0.25);
+  pointer-events: none;
+}
+
+.character-header,
+.character-main,
+.character-footer {
+  position: relative;
+  width: min(980px, calc(100% - 84px));
+  margin-inline: auto;
+}
+
+.character-header { padding: 42px 0 30px; }
+.return-link,
+.archive-mark,
+.eyebrow,
+.instruction,
+.button-kicker,
+.drawer-number,
+.gallery-label,
+.character-footer {
+  font-family: "DM Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.return-link {
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rose);
+}
+
+.return-link:hover { color: var(--rose); }
+.return-link:focus-visible,
+.artfight-button:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 5px;
+}
+
+.archive-mark { float: right; margin: 0; color: var(--muted); }
+.archive-mark span { color: var(--rose); }
+.title-block { position: relative; isolation: isolate; clear: both; min-height: 168px; padding: 52px 0 18px; overflow: hidden; }
+.title-copy { position: relative; z-index: 1; max-width: 700px; padding-top: 8px; }
+.eyebrow { margin: 0 0 14px; color: var(--rose); }
+
+h1 {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 3.3rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.title-japanese { position: absolute; top: 0; right: 1%; z-index: -1; color: rgba(233, 166, 188, 0.13); font-family: "Shippori Mincho", serif; font-size: clamp(3.4rem, 8vw, 6.5rem); font-weight: 700; line-height: 1; letter-spacing: 0.12em; writing-mode: vertical-rl; text-orientation: upright; pointer-events: none; }
+.subtitle { margin: 12px 0 0; color: var(--muted); font-size: 1.2rem; font-style: italic; }
+.character-main { display: grid; grid-template-columns: 44px 1fr; gap: 28px; padding: 24px 0 76px; }
+.archive-content { min-width: 0; }
+
+.vertical-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--rose);
+}
+
+.japanese-label {
+  writing-mode: vertical-rl;
+  font-family: "Shippori Mincho", serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+}
+
+.note-divider { width: 1px; min-height: 44px; background: var(--wine); }
+.vertical-copy { writing-mode: vertical-rl; color: var(--muted); font: 0.56rem "DM Mono", monospace; letter-spacing: 0.14em; }
+.archive-intro { display: flex; align-items: center; gap: 14px; padding: 15px 0; border-block: 1px solid var(--line); }
+.instruction { margin: 0; color: var(--rose); }
+.intro-mark { color: var(--rose); font-size: 0.8rem; }
+.character-drawers { display: grid; gap: 20px; margin-top: 26px; }
+
+.character-drawer {
+  border: 1px solid var(--rose);
+  background: var(--panel);
+  box-shadow: 6px 6px 0 rgba(112, 37, 63, 0.38);
+}
+
+.artfight-button {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 64px 1fr 32px;
+  gap: 20px;
+  align-items: center;
+  min-height: 150px;
+  overflow: hidden;
+  padding: 22px 28px;
+  cursor: pointer;
+  list-style: none;
+  background:
+    linear-gradient(105deg, rgba(112, 37, 63, 0.93), rgba(36, 27, 35, 0.94) 76%),
+    var(--wine);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.artfight-button::before,
+.artfight-button::after {
+  position: absolute;
+  z-index: -1;
+  color: rgba(233, 166, 188, 0.12);
+  pointer-events: none;
+}
+
+.artfight-button::before { content: "♡"; top: -38px; right: 34px; font-size: 10rem; }
+.artfight-button::after { content: "✦"; right: 27%; bottom: -29px; font-size: 5rem; }
+.artfight-button:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 rgba(112, 37, 63, 0.5); }
+.artfight-button::-webkit-details-marker { display: none; }
+.drawer-number { align-self: start; color: var(--rose); }
+.drawer-number small { display: block; margin-top: 5px; color: var(--muted); font-size: 0.55rem; }
+.button-copy { display: flex; flex-direction: column; gap: 7px; }
+.button-kicker { color: var(--rose); font-size: 0.58rem; }
+
+.button-copy strong {
+  font-family: "Shippori Mincho", "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 4.8vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.035em;
+}
+
+.button-copy strong em { color: var(--rose); font-style: normal; }
+.button-copy small { color: var(--muted); font-size: 0.9rem; letter-spacing: 0.04em; }
+.button-arrow { color: var(--rose); font-family: "DM Mono", monospace; font-size: 1.8rem; text-align: center; }
+.character-drawer[open] .button-arrow { transform: rotate(45deg); }
+.artfight-gallery { display: grid; justify-items: center; gap: 8px; padding: 32px 18px; border-top: 1px solid rgba(233, 166, 188, 0.5); text-align: center; }
+.gallery-ornament { color: var(--rose); font-size: 1.2rem; }
+.gallery-label { margin: 0; color: var(--rose); font-size: 0.58rem; }
+.gallery-message { margin: 4px 0 0; font-size: 1.6rem; font-weight: 600; }
+.gallery-detail { margin: 0; color: var(--muted); font-size: 1rem; font-style: italic; }
+
+.character-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 36px;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .character-header,
+  .character-main,
+  .character-footer { width: min(calc(100% - 54px), 500px); }
+  .character-header { padding-top: 32px; }
+  .archive-mark { float: none; margin-top: 18px; }
+  .title-block { min-height: 150px; padding: 42px 0 18px; }
+  .title-copy { padding-top: 0; }
+  h1 { max-width: 100%; font-size: clamp(1.75rem, 7vw, 2.5rem); }
+  .title-japanese { top: 2px; right: 0; font-size: clamp(3.4rem, 14vw, 5rem); }
+  .subtitle { max-width: 28rem; font-size: 1.05rem; }
+  .character-main { grid-template-columns: 24px 1fr; gap: 16px; padding-top: 18px; }
+  .vertical-note { gap: 12px; }
+  .japanese-label { font-size: 0.82rem; }
+  .vertical-copy { font-size: 0.48rem; }
+  .artfight-button { grid-template-columns: 38px 1fr 22px; gap: 12px; min-height: 132px; padding: 18px 14px; }
+  .button-copy strong { font-size: clamp(1.55rem, 7vw, 2.3rem); }
+  .button-copy small { font-size: 0.76rem; line-height: 1.4; }
+  .gallery-message { font-size: 1.3rem; }
+  .character-footer { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
