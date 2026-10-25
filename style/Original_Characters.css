@@ -171,6 +171,9 @@ h1 em { color: var(--red); font-style: normal; }
 .duo-dossier .dossier-profile article, .duo-dossier .dossier-story article { background: rgba(10, 12, 16, 0.93); }
 .duo-dossier .dossier-profile h4, .duo-dossier .dossier-story h4 { background: #292b2e; }
 .duo-dossier .dossier-profile article > p, .duo-dossier .dossier-story article > p { color: #fff; }
+.nixya-dossier .dossier-kicker { color: #fff; }
+.miro-dossier .dossier-kicker { color: #111; }
+.miro-dossier .dossier-heading h3 { color: #111; }
 .duo-credit { margin: 0 26px 12px; }
 .duo-credit a { color: #d9e4ff; text-decoration-color: rgba(190, 210, 255, 0.65); text-underline-offset: 3px; }
 .duo-credit a:hover { color: #fff; text-decoration-color: currentColor; }
@@ -213,6 +216,7 @@ h1 em { color: var(--red); font-style: normal; }
     radial-gradient(ellipse at 18% 82%, rgba(29, 78, 112, 0.25), transparent 46%);
   background-size: 137px 113px, 181px 157px, 223px 197px, 167px 179px, auto, auto;
 }
+.raze-dossier .dossier-profile article > p { color: #fff; }
 .raze-epigraph { margin: 0 0 16px; font-family: "DM Mono", "Courier New", monospace; font-size: clamp(0.82rem, 1.6vw, 1.1rem); text-align: center; }
 .raze-epigraph a, .raze-dossier a, .raze-drawer > .design-heading a { color: #d9e4ff; text-decoration-color: rgba(190, 210, 255, 0.65); text-underline-offset: 3px; }
 .raze-epigraph a:hover, .raze-dossier a:hover, .raze-drawer > .design-heading a:hover { color: #fff; text-decoration-color: currentColor; }
