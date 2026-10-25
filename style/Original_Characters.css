@@ -161,6 +161,45 @@ h1 em { color: var(--red); font-style: normal; }
 .dossier-profile h4, .dossier-story h4 { margin: 0; padding: 8px 10px; color: var(--paper); background: #343431; font-family: "DM Mono", monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; }
 .dossier-profile article > p, .dossier-story article > p { margin: 0; padding: 7px 10px; color: #c5c2b9; font-size: 0.98rem; line-height: 1.35; text-align: center; }
 .dossier-story article > p { min-height: 58px; }
+.duo-dossiers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 0 26px 26px; }
+.duo-dossier { min-width: 0; margin: 0; padding: 18px; border: 1px solid rgba(245, 242, 232, 0.35); background: rgba(8, 8, 8, 0.5); }
+.duo-dossier .dossier-profile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.duo-dossier .dossier-story { grid-template-columns: 1fr; }
+.duo-dossier .nixya-credits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.duo-dossier .dossier-profile h4, .duo-dossier .dossier-story h4 { min-height: 36px; display: flex; align-items: center; justify-content: center; }
+.duo-dossier .dossier-profile article > p, .duo-dossier .dossier-story article > p { overflow-wrap: anywhere; }
+.duo-dossier .dossier-profile article, .duo-dossier .dossier-story article { background: rgba(10, 12, 16, 0.93); }
+.duo-dossier .dossier-profile h4, .duo-dossier .dossier-story h4 { background: #292b2e; }
+.duo-dossier .dossier-profile article > p, .duo-dossier .dossier-story article > p { color: #fff; }
+.duo-credit { margin: 0 26px 12px; }
+.duo-credit a { color: #d9e4ff; text-decoration-color: rgba(190, 210, 255, 0.65); text-underline-offset: 3px; }
+.duo-credit a:hover { color: #fff; text-decoration-color: currentColor; }
+.duo-shared-story { margin-top: 0; }
+.duo-shared-story .dossier-story article { background: #17191d; }
+.duo-shared-story .dossier-story article > p { color: #fff; }
+.nixya-dossier {
+  border-color: rgba(255, 173, 208, 0.75);
+  background-color: #a91d5b;
+  background-image:
+    radial-gradient(ellipse at 18% 12%, rgba(255, 113, 171, 0.78), transparent 46%),
+    radial-gradient(ellipse at 82% 88%, rgba(220, 48, 116, 0.82), transparent 50%),
+    radial-gradient(3px 3px at 12px 17px, rgba(41, 37, 34, 0.9) 45%, transparent 55%),
+    radial-gradient(2.5px 2.5px at 39px 43px, rgba(41, 37, 34, 0.85) 45%, transparent 55%),
+    radial-gradient(3px 3px at 68px 12px, rgba(41, 37, 34, 0.8) 45%, transparent 55%);
+  background-size: auto, auto, 83px 71px, 97px 89px, 109px 103px;
+}
+.miro-dossier {
+  border-color: rgba(226, 222, 164, 0.8);
+  background-color: #b9ba87;
+  background-image:
+    repeating-conic-gradient(#aaa979 0% 25%, #c2c28f 0% 50%),
+    repeating-conic-gradient(#b3b483 0% 25%, #c7c798 0% 50%);
+  background-size: 18px 18px, 36px 36px;
+  background-position: 0 0, 9px 9px;
+}
+.miro-species-sheet { grid-template-columns: 1fr; }
+.nixya-dossier .nixya-credits a, .miro-species-sheet a { color: #fff1bd; text-decoration-color: rgba(255, 241, 189, 0.75); text-underline-offset: 3px; }
+.nixya-dossier .nixya-credits a:hover, .miro-species-sheet a:hover { color: #fff; }
 .raze-dossier {
   padding: 22px;
   border: 1px solid rgba(180, 199, 255, 0.42);
@@ -259,6 +298,9 @@ h1 em { color: var(--red); font-style: normal; }
   .character-drawer summary small { grid-column: 2 / -1; }
   .character-drawer > summary { min-height: 118px; }
   .picture-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 18px 18px; }
+  .duo-credit { margin-inline: 18px; }
+  .duo-dossiers { grid-template-columns: 1fr; padding: 0 18px 18px; }
+  .duo-dossier .nixya-credits { grid-template-columns: 1fr; }
   .picture-slot { min-height: 120px; }
   .dossier { margin: 0 18px 20px; padding-top: 18px; }
   .dossier-profile { grid-template-columns: repeat(2, minmax(0, 1fr)); }
