@@ -149,6 +149,8 @@ h1 em { color: var(--red); font-style: normal; }
 .persona-item summary::-webkit-details-marker { display: none; }
 .persona-item summary strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; font-weight: 700; }
 .persona-item summary span, .persona-item summary b { color: var(--grey); font-family: "DM Mono", monospace; font-size: 0.7rem; }
+.persona-credit { margin: 0; padding: 0 6px 10px 52px; color: var(--grey); font-size: 0.82rem; line-height: 1.45; }
+.persona-credit a { color: var(--paper); }
 .persona-grid { padding-top: 12px; }
 .dossier { margin: 0 26px 26px; padding-top: 22px; border-top: 1px solid rgba(245, 242, 232, 0.35); }
 .dossier-heading { margin-bottom: 12px; }
