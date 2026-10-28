@@ -51,9 +51,50 @@
           <div class="artfight-gallery">
             <span class="gallery-ornament" aria-hidden="true">♡</span>
             <p class="gallery-label"><span lang="ja">アートファイト / 作品記録</span> / ARTFIGHT DRAWING ARCHIVE</p>
-            <p class="gallery-message"><span lang="ja">作品を準備中です</span></p>
-            <p class="gallery-detail">This little gallery is waiting for its drawings.</p>
-            <span class="gallery-ornament" aria-hidden="true">♡</span>
+
+            <section class="artfight-year" aria-labelledby="artfight-2026">
+              <h3 id="artfight-2026">2026</h3>
+              <div class="artfight-grid">
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="slams you with a last-minute mass attack 7th"><img src="../images/visual_vault/other_characters/artfight/2026/slams%20you%20with%20a%20last-minute%20mass%20attack_7th.png" alt="Artfight drawing titled slams you with a last-minute mass attack" loading="lazy" /></button>
+                  <figcaption>slams you with a last-minute mass attack 7th</figcaption>
+                </figure>
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="He looks good in pink... 6th"><img src="../images/visual_vault/other_characters/artfight/2026/He%20looks%20good%20in%20pink..._6th.jpg" alt="Artfight drawing titled He looks good in pink" loading="lazy" /></button>
+                  <figcaption>He looks good in pink... 6th</figcaption>
+                </figure>
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="Goddesses 5th"><img src="../images/visual_vault/other_characters/artfight/2026/Goddesses_5th.png" alt="Artfight drawing of Goddesses" loading="lazy" /></button>
+                  <figcaption>Goddesses 5th</figcaption>
+                </figure>
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="Groovy! 4th"><img src="../images/visual_vault/other_characters/artfight/2026/Groovy!_4th.jpg" alt="Artfight drawing titled Groovy!" loading="lazy" /></button>
+                  <figcaption>Groovy! 4th</figcaption>
+                </figure>
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="DANCE 3rd"><img src="../images/visual_vault/other_characters/artfight/2026/DANCE_3rd.png" alt="Artfight drawing titled DANCE" loading="lazy" /></button>
+                  <figcaption>DANCE 3rd</figcaption>
+                </figure>
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="Chained 2nd"><img src="../images/visual_vault/other_characters/artfight/2026/Chained_2nd.png" alt="Artfight drawing of Chained" loading="lazy" /></button>
+                  <figcaption>Chained 2nd</figcaption>
+                </figure>
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="Fugitive aero icons 1st"><img src="../images/visual_vault/other_characters/artfight/2026/Fugitive%20aero%20icons_1st.png" alt="Artfight drawing of Fugitive aero icons" loading="lazy" /></button>
+                  <figcaption>Fugitive aero icons 1st</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="artfight-year" aria-labelledby="artfight-2025">
+              <h3 id="artfight-2025">2025</h3>
+              <div class="artfight-grid">
+                <figure class="artfight-drawing">
+                  <button class="artfight-preview" type="button" data-caption="Pinchie 1st"><img src="../images/visual_vault/other_characters/artfight/2025/Pinchie_1st.png" alt="Artfight drawing of Pinchie" loading="lazy" /></button>
+                  <figcaption>Pinchie 1st</figcaption>
+                </figure>
+              </div>
+            </section>
           </div>
         </details>
       </nav>
@@ -64,5 +105,32 @@
     <span><span lang="ja">心をこめて</span> / MADE WITH A LITTLE HEART</span>
     <span>/// PNK-OC-002</span>
   </footer>
+
+  <dialog class="artfight-lightbox" aria-label="Full-size Artfight drawing">
+    <button class="artfight-lightbox-close" type="button" aria-label="Close full-size drawing">×</button>
+    <img src="" alt="" />
+    <p></p>
+  </dialog>
+
+  <script>
+    const artfightLightbox = document.querySelector('.artfight-lightbox');
+    const artfightLightboxImage = artfightLightbox.querySelector('img');
+    const artfightLightboxCaption = artfightLightbox.querySelector('p');
+
+    document.querySelectorAll('.artfight-preview').forEach((button) => {
+      button.addEventListener('click', () => {
+        const drawing = button.querySelector('img');
+        artfightLightboxImage.src = drawing.src;
+        artfightLightboxImage.alt = drawing.alt;
+        artfightLightboxCaption.textContent = button.dataset.caption;
+        artfightLightbox.showModal();
+      });
+    });
+
+    artfightLightbox.querySelector('.artfight-lightbox-close').addEventListener('click', () => artfightLightbox.close());
+    artfightLightbox.addEventListener('click', (event) => {
+      if (event.target === artfightLightbox) artfightLightbox.close();
+    });
+  </script>
 </body>
 </html>
