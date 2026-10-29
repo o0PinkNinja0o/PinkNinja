@@ -60,11 +60,11 @@
                   <figcaption>slams you with a last-minute mass attack 7th</figcaption>
                 </figure>
                 <figure class="artfight-drawing">
-                  <button class="artfight-preview" type="button" data-caption="He looks good in pink... 6th"><img src="../images/visual_vault/other_characters/artfight/2026/He%20looks%20good%20in%20pink..._6th.jpg" alt="Artfight drawing titled He looks good in pink" loading="lazy" /></button>
+                  <button class="artfight-preview warning-tag" type="button" data-caption="He looks good in pink... 6th" data-warning-label="SUGGESTIVE THEMES WARNING"><img src="../images/visual_vault/other_characters/artfight/2026/He%20looks%20good%20in%20pink..._6th.jpg" alt="Artfight drawing titled He looks good in pink" loading="lazy" /></button>
                   <figcaption>He looks good in pink... 6th</figcaption>
                 </figure>
                 <figure class="artfight-drawing">
-                  <button class="artfight-preview" type="button" data-caption="Goddesses 5th"><img src="../images/visual_vault/other_characters/artfight/2026/Goddesses_5th.png" alt="Artfight drawing of Goddesses" loading="lazy" /></button>
+                  <button class="artfight-preview warning-tag" type="button" data-caption="Goddesses 5th" data-warning-label="SUGGESTIVE THEMES WARNING"><img src="../images/visual_vault/other_characters/artfight/2026/Goddesses_5th.png" alt="Artfight drawing of Goddesses" loading="lazy" /></button>
                   <figcaption>Goddesses 5th</figcaption>
                 </figure>
                 <figure class="artfight-drawing">
@@ -76,7 +76,7 @@
                   <figcaption>DANCE 3rd</figcaption>
                 </figure>
                 <figure class="artfight-drawing">
-                  <button class="artfight-preview" type="button" data-caption="Chained 2nd"><img src="../images/visual_vault/other_characters/artfight/2026/Chained_2nd.png" alt="Artfight drawing of Chained" loading="lazy" /></button>
+                  <button class="artfight-preview warning-tag" type="button" data-caption="Chained 2nd" data-warning-label="GORE WARNING"><img src="../images/visual_vault/other_characters/artfight/2026/Chained_2nd.png" alt="Artfight drawing of Chained" loading="lazy" /></button>
                   <figcaption>Chained 2nd</figcaption>
                 </figure>
                 <figure class="artfight-drawing">
@@ -90,7 +90,7 @@
               <h3 id="artfight-2025">2025</h3>
               <div class="artfight-grid">
                 <figure class="artfight-drawing">
-                  <button class="artfight-preview" type="button" data-caption="Pinchie 1st"><img src="../images/visual_vault/other_characters/artfight/2025/Pinchie_1st.png" alt="Artfight drawing of Pinchie" loading="lazy" /></button>
+                  <button class="artfight-preview warning-tag" type="button" data-caption="Pinchie 1st" data-warning-label="GORE WARNING"><img src="../images/visual_vault/other_characters/artfight/2025/Pinchie_1st.png" alt="Artfight drawing of Pinchie" loading="lazy" /></button>
                   <figcaption>Pinchie 1st</figcaption>
                 </figure>
               </div>
@@ -109,13 +109,15 @@
   <dialog class="artfight-lightbox" aria-label="Full-size Artfight drawing">
     <button class="artfight-lightbox-close" type="button" aria-label="Close full-size drawing">×</button>
     <img src="" alt="" />
-    <p></p>
+    <p class="artfight-lightbox-warning"></p>
+    <p class="artfight-lightbox-caption"></p>
   </dialog>
 
   <script>
     const artfightLightbox = document.querySelector('.artfight-lightbox');
     const artfightLightboxImage = artfightLightbox.querySelector('img');
-    const artfightLightboxCaption = artfightLightbox.querySelector('p');
+    const artfightLightboxCaption = artfightLightbox.querySelector('.artfight-lightbox-caption');
+    const artfightLightboxWarning = artfightLightbox.querySelector('.artfight-lightbox-warning');
 
     document.querySelectorAll('.artfight-preview').forEach((button) => {
       button.addEventListener('click', () => {
@@ -123,6 +125,9 @@
         artfightLightboxImage.src = drawing.src;
         artfightLightboxImage.alt = drawing.alt;
         artfightLightboxCaption.textContent = button.dataset.caption;
+        artfightLightboxWarning.textContent = '';
+        artfightLightboxWarning.hidden = true;
+        artfightLightboxImage.classList.remove('warning-blur');
         artfightLightbox.showModal();
       });
     });

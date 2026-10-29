@@ -200,8 +200,10 @@ h1 {
 }
 .artfight-drawing { min-width: 0; margin: 0; }
 .artfight-preview {
+  position: relative;
   display: block;
   width: 100%;
+  overflow: hidden;
   padding: 0;
   border: 0;
   color: inherit;
@@ -213,10 +215,38 @@ h1 {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: contain;
-  border: 1px solid rgba(233, 166, 188, 0.48);
+  border: 0;
   background: rgba(248, 237, 240, 0.04);
 }
 .artfight-preview:focus-visible { outline: 2px solid var(--rose); outline-offset: 4px; }
+.artfight-preview.warning-tag::before {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  content: "";
+  border: 1px solid rgba(233, 166, 188, 0.48);
+  pointer-events: none;
+}
+.artfight-preview.warning-tag::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  content: attr(data-warning-label);
+  padding: 8px 6px;
+  border-block: 1px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  font-family: "DM Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: none;
+  transform: translateY(-50%);
+  background: rgba(141, 25, 25, 0.92);
+}
+.artfight-preview.warning-tag img { filter: blur(4px); }
 .artfight-drawing figcaption {
   margin-top: 8px;
   color: var(--muted);
@@ -243,6 +273,18 @@ h1 {
   object-fit: contain;
 }
 .artfight-lightbox p { margin: 12px 0 0; color: var(--muted); text-align: center; }
+.artfight-lightbox-warning {
+  width: fit-content;
+  margin-inline: auto;
+  padding: 6px 10px;
+  border: 1px solid var(--rose);
+  color: var(--paper) !important;
+  font: 0.68rem "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.artfight-lightbox-warning[hidden] { display: none; }
+.artfight-lightbox img.warning-blur { filter: blur(12px); }
 .artfight-lightbox-close {
   position: absolute;
   top: 8px;
