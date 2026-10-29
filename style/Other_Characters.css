@@ -254,6 +254,50 @@ h1 {
   line-height: 1.25;
 }
 
+.artfight-info {
+  display: grid;
+  grid-template-columns: 1fr auto 38px;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid var(--rose);
+  color: var(--paper);
+  font-family: "DM Mono", "Courier New", monospace;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(112, 37, 63, 0.88), rgba(112, 37, 63, 0.18));
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.artfight-info:hover { transform: translateY(-3px); background: var(--wine); }
+.artfight-info:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+.artfight-info span { padding: 10px 12px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-align: left; }
+.artfight-info b { align-self: stretch; display: grid; place-items: center; min-width: 44px; border-inline: 1px solid var(--rose); font-size: 0.65rem; }
+.artfight-info i { font-size: 1.35rem; font-style: normal; transition: transform 0.18s ease; }
+.artfight-info:hover i { transform: translate(3px, -3px); }
+.artfight-info-panel {
+  width: 100%;
+  margin-top: -1px;
+  padding: 18px;
+  border: 1px solid var(--rose);
+  color: var(--paper);
+  text-align: left;
+  background: var(--panel);
+  animation: artfight-info-open 0.18s ease-out;
+}
+.artfight-info-panel[hidden] { display: none; }
+.artfight-info-panel h4 { margin: 8px 0 14px; font-size: 1.35rem; }
+.artfight-info-kicker { margin: 0; color: var(--rose); font: 0.62rem "DM Mono", monospace; letter-spacing: 0.15em; }
+.artfight-info-panel dl { margin: 0; border-block: 1px solid var(--line); }
+.artfight-info-panel dl div { display: grid; grid-template-columns: 90px 1fr; padding: 9px 0; }
+.artfight-info-panel dt { color: var(--rose); font: 0.62rem "DM Mono", monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+.artfight-info-panel dd { margin: 0; }
+.artfight-info-note { margin: 18px 0 0; color: var(--muted); font-style: italic; }
+.artfight-info.open i { transform: rotate(180deg); }
+@keyframes artfight-info-open {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .artfight-lightbox {
   width: min(94vw, 1100px);
   max-width: none;
