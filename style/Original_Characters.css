@@ -192,6 +192,15 @@ h1 em { color: var(--red); font-style: normal; }
 }
 .backrooms-dossier .dossier-heading h3,
 .backrooms-dossier .dossier-kicker { color: #111; text-shadow: 0 1px rgba(239, 235, 177, 0.85); }
+.backrooms-dossier .dossier-heading h3 { padding-left: 18px; }
+.dossier-song-heading {
+  margin: 0 0 16px;
+  font-family: "DM Mono", "Courier New", monospace;
+  font-size: clamp(0.82rem, 1.6vw, 1.1rem);
+  text-align: center;
+}
+.backrooms-dossier .dossier-song-heading a { color: #111; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.backrooms-dossier .dossier-song-heading a:hover { color: #4f4824; }
 .backrooms-dossier .dossier-profile,
 .backrooms-dossier .dossier-story { border-color: rgba(82, 75, 43, 0.82); }
 .backrooms-dossier .dossier-profile article,
