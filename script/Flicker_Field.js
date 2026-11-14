@@ -4,38 +4,25 @@
   );
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (!entries.length || reduceMotion || !("IntersectionObserver" in window)) {
+  if (!entries.length || reduceMotion) {
     return;
   }
 
   const previewDuration = 5;
-  const visibleEntries = new Set();
-  let activeEntry = null;
+  const states = entries.map((entry) => {
+    const preview = entry.querySelector(".preview-video");
+    const requestedStart = Number(preview.dataset.previewStart) || 0;
 
-  const getPreview = (entry) => entry.querySelector(".preview-video");
-
-  const startNextPreview = () => {
-    if (activeEntry || document.hidden || entries.some((entry) => entry.open)) {
-      return;
-    }
-
-    const entry = entries.find((candidate) => {
-      const preview = getPreview(candidate);
-      return (
-        visibleEntries.has(candidate) &&
-        !candidate.open &&
-        preview.dataset.finished !== "true" &&
-        preview.dataset.failed !== "true"
-      );
-    });
-
-    if (!entry) {
-      return;
-    }
-
-    activeEntry = entry;
-    playPreview(entry);
-  };
+    return {
+      entry,
+      preview,
+      fullVideo: entry.querySelector(".full-video"),
+      start: requestedStart,
+      failed: false,
+      starting: false,
+    };
+  });
+  let loopOrigin = null;
 
   const waitForMetadata = (video) =>
     new Promise((resolve, reject) => {
@@ -55,6 +42,30 @@
       video.addEventListener("loadedmetadata", onLoaded, { once: true });
       video.addEventListener("error", onError, { once: true });
       video.load();
+    });
+
+  const waitForPlaybackReady = (video) =>
+    new Promise((resolve, reject) => {
+      if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+        resolve();
+        return;
+      }
+
+      const cleanUp = () => {
+        video.removeEventListener("canplay", onReady);
+        video.removeEventListener("error", onError);
+      };
+      const onReady = () => {
+        cleanUp();
+        resolve();
+      };
+      const onError = () => {
+        cleanUp();
+        reject(video.error || new Error("Video preview data could not be loaded."));
+      };
+
+      video.addEventListener("canplay", onReady, { once: true });
+      video.addEventListener("error", onError, { once: true });
     });
 
   const seekTo = (video, time) =>
@@ -82,8 +93,8 @@
       video.currentTime = time;
     });
 
-  async function playPreview(entry) {
-    const preview = getPreview(entry);
+  const preparePreview = async (state) => {
+    const { preview } = state;
 
     try {
       preview.muted = true;
@@ -91,107 +102,123 @@
         await waitForMetadata(preview);
       }
 
-      if (activeEntry !== entry || entry.open || !visibleEntries.has(entry)) {
-        return;
-      }
-
-      if (preview.dataset.positioned !== "true") {
-        const previewStart = Math.min(
-          Number(preview.dataset.previewStart) || 0,
-          Math.max(0, preview.duration - previewDuration)
-        );
-        preview.dataset.previewStart = String(previewStart);
-        await seekTo(preview, previewStart);
-        preview.dataset.positioned = "true";
-      }
-
-      if (activeEntry === entry && !entry.open && visibleEntries.has(entry)) {
-        await preview.play();
-      }
+      state.start = Math.min(state.start, Math.max(0, preview.duration - previewDuration));
+      await seekTo(preview, state.start);
+      await waitForPlaybackReady(preview);
     } catch (error) {
-      preview.dataset.failed = "true";
-      activeEntry = activeEntry === entry ? null : activeEntry;
-      console.warn(`Could not play the preview for ${entry.querySelector("summary strong").textContent}.`, error);
-      startNextPreview();
+      state.failed = true;
+      console.warn(
+        `Could not prepare the preview for ${state.entry.querySelector("summary strong").textContent}.`,
+        error
+      );
     }
-  }
+  };
 
-  entries.forEach((entry) => {
-    const preview = getPreview(entry);
-    const fullVideo = entry.querySelector(".full-video");
-    const previewStart = Number(preview.dataset.previewStart) || 0;
+  const prepared = Promise.all(states.map(preparePreview));
+
+  const preparePreviewPlayback = async (state, phase) => {
+    if (state.failed || state.entry.open || state.starting || !state.preview.paused) {
+      return false;
+    }
+
+    state.starting = true;
+    try {
+      await seekTo(state.preview, state.start + phase);
+      await waitForPlaybackReady(state.preview);
+      const ready = !document.hidden && !state.entry.open;
+      if (!ready) {
+        state.starting = false;
+      }
+      return ready;
+    } catch (error) {
+      state.failed = true;
+      console.warn(
+        `Could not play the preview for ${state.entry.querySelector("summary strong").textContent}.`,
+        error
+      );
+      state.starting = false;
+      return false;
+    }
+  };
+
+  const startPreviews = async (targets) => {
+    await prepared;
+    if (document.hidden) {
+      return;
+    }
+
+    const phase = loopOrigin === null ? 0 : ((performance.now() - loopOrigin) / 1000) % previewDuration;
+    const readyStates = await Promise.all(
+      targets.map(async (state) =>
+        (await preparePreviewPlayback(state, phase)) ? state : null
+      )
+    );
+    if (document.hidden) {
+      readyStates.forEach((state) => {
+        if (state) {
+          state.starting = false;
+        }
+      });
+      return;
+    }
+
+    if (loopOrigin === null) {
+      loopOrigin = performance.now();
+    }
+
+    await Promise.all(
+      readyStates.filter(Boolean).map(async (state) => {
+        try {
+          if (!state.entry.open) {
+            await state.preview.play();
+          }
+        } catch (error) {
+          state.failed = true;
+          console.warn(
+            `Could not play the preview for ${state.entry.querySelector("summary strong").textContent}.`,
+            error
+          );
+        } finally {
+          state.starting = false;
+        }
+      })
+    );
+  };
+
+  states.forEach((state) => {
+    const { entry, preview, fullVideo, start } = state;
 
     preview.addEventListener("timeupdate", () => {
-      if (activeEntry === entry && preview.currentTime >= previewStart + previewDuration) {
-        preview.pause();
-        preview.dataset.finished = "true";
-        activeEntry = null;
-        startNextPreview();
-      }
-    });
-
-    preview.addEventListener("ended", () => {
-      if (activeEntry === entry) {
-        preview.dataset.finished = "true";
-        activeEntry = null;
-        startNextPreview();
+      if (preview.currentTime >= start + previewDuration) {
+        preview.currentTime = start;
       }
     });
 
     entry.addEventListener("toggle", () => {
       if (entry.open) {
-        if (activeEntry) {
-          getPreview(activeEntry).pause();
-          activeEntry = null;
-        }
         preview.pause();
-        preview.dataset.positioned = "false";
         fullVideo.pause();
-        startNextPreview();
         return;
       }
 
       fullVideo.pause();
       fullVideo.currentTime = 0;
-      preview.dataset.finished = "false";
-      preview.dataset.failed = "false";
-      preview.dataset.positioned = "false";
-      if (activeEntry === entry) {
-        activeEntry = null;
-      }
-      startNextPreview();
+      startPreviews([state]);
     });
   });
 
-  const observer = new IntersectionObserver(
-    (observations) => {
-      observations.forEach(({ target, isIntersecting, intersectionRatio }) => {
-        if (isIntersecting && intersectionRatio >= 0.35) {
-          visibleEntries.add(target);
-          return;
-        }
-
-        visibleEntries.delete(target);
-        if (activeEntry === target) {
-          getPreview(target).pause();
-          activeEntry = null;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      states.forEach(({ entry, preview }) => {
+        if (!entry.open) {
+          preview.pause();
         }
       });
-
-      startNextPreview();
-    },
-    { threshold: [0, 0.35] }
-  );
-
-  entries.forEach((entry) => observer.observe(entry));
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden && activeEntry) {
-      getPreview(activeEntry).pause();
-      activeEntry = null;
       return;
     }
 
-    startNextPreview();
+    startPreviews(states);
   });
+
+  startPreviews(states);
 })();
