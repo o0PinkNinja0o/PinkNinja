@@ -1,7 +1,8 @@
 (() => {
-  const entries = Array.from(document.querySelectorAll(".video-entry")).filter((entry) =>
-    entry.querySelector(".preview-video")
-  );
+  const entries = Array.from(document.querySelectorAll(".video-entry")).filter((entry) => {
+    const preview = entry.querySelector(".preview-video");
+    return preview && preview.dataset.disablePreview !== "true";
+  });
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!entries.length || reduceMotion) {
