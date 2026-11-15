@@ -65,23 +65,21 @@ h2 { color: var(--paper); font-size: clamp(2rem, 5vw, 3.3rem); }
 .video-entry[open] { grid-column: 1 / -1; }
 .video-entry { min-width: 0; padding: 12px; border: 1px solid rgba(244, 244, 234, 0.45); background: rgba(22, 22, 19, 0.82); box-shadow: 5px 5px 0 rgba(255, 79, 184, 0.12); transition: transform 0.2s ease, border-color 0.2s ease; }
 .video-entry:hover, .video-entry[open] { border-color: var(--green); transform: translate(-2px, -2px); }
-.video-entry summary { list-style: none; cursor: pointer; outline: 0; }
+.video-entry summary { position: relative; isolation: isolate; display: flex; flex-direction: column; min-height: 240px; padding: 12px; list-style: none; cursor: pointer; outline: 0; background-color: #151510; background-image: var(--preview-image); background-position: center; background-repeat: no-repeat; background-size: cover; }
 .video-entry summary::-webkit-details-marker { display: none; }
-.video-entry summary strong { display: block; color: var(--paper); font-family: "VT323", monospace; font-size: 1.55rem; font-weight: 400; letter-spacing: 0.04em; }
-.video-entry summary::after { content: "+ OPEN VIDEO"; display: block; margin-top: 8px; color: var(--blue); font-size: 0.58rem; letter-spacing: 0.1em; text-align: right; }
+.video-entry summary::before { position: absolute; z-index: 0; inset: 0; content: ""; background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0.78)); pointer-events: none; }
+.video-entry summary strong { position: relative; z-index: 1; display: block; color: var(--paper); font-family: "VT323", monospace; font-size: 1.55rem; font-weight: 400; letter-spacing: 0.04em; }
+.video-entry summary::after { position: relative; z-index: 1; display: block; margin-top: 0; color: var(--blue); font-size: 0.58rem; letter-spacing: 0.1em; text-align: right; }
+.video-entry:not([open]) summary .entry-meta { position: relative; z-index: 1; margin: auto 0 8px; }
+.video-entry[open] summary { min-height: 0; padding: 0; background-color: transparent; background-image: none; }
+.video-entry[open] summary::before { display: none; }
+.video-entry[open] summary .entry-meta { margin: 12px 0 16px; }
 .video-entry[open] summary::after { content: "- CLOSE VIDEO"; }
+.video-entry:not([open]) summary::after { content: "+ OPEN VIDEO"; }
 .expanded-content { padding-top: 14px; }
-.video-preview { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; color: var(--acid); border: 1px solid var(--line); background-color: #151510; background-image: repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(255, 79, 184, 0.08) 7px); text-align: center; }
-.slot-preview { display: block; width: 100%; margin-top: 12px; aspect-ratio: 16 / 9; border: 1px solid var(--line); background: #151510; object-fit: contain; }
-.preview-video { object-fit: cover; }
-.video-entry[open] .preview-video { display: none; }
-.slot-preview span { font-size: 0.65rem; }
-.slot-preview small { margin-top: 4px; }
+.slot-preview { display: block; width: 100%; margin-top: 12px; aspect-ratio: 16 / 9; border: 1px solid var(--line); background-color: #151510; background-position: center; background-repeat: no-repeat; background-size: cover; }
 .vertical-preview { width: min(52%, 110px); margin-inline: auto; aspect-ratio: 9 / 16; }
 .video-entry[open] .vertical-preview { width: min(68%, 260px); max-height: calc(100vh - 250px); }
-.video-preview::before { content: ""; position: absolute; width: 68%; height: 1px; background: var(--green); transform: rotate(-25deg); opacity: 0.8; }
-.video-preview span { z-index: 1; font-size: 0.72rem; letter-spacing: 0.1em; }
-.video-preview small { z-index: 1; margin-top: 9px; color: var(--blue); font-size: 0.6rem; }
 .entry-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; margin: 12px 0 16px; color: var(--muted); font-size: 0.58rem; }
 .entry-meta span:first-child { color: var(--acid); }
 .archive-field { margin-top: 12px; color: var(--green); font-size: 0.62rem; letter-spacing: 0.1em; }
