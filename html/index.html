@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PinkNinja'sPortfolio" />
+  <meta name="description" content="Pink Ninja's portfolio and about page" />
   <title>PinkNinja'sPortfolio</title>
   <link rel="stylesheet" href="../style/index.css" />
+  <link rel="stylesheet" href="../style/About_Section.css" />
   <link rel="stylesheet" href="../style/loading.css" />
   <script src="../script/loading.js" defer></script>
 </head>
@@ -14,23 +15,7 @@
     <div class="aurora aurora-one"></div>
     <div class="aurora aurora-two"></div>
   </div>
-  <div class="bubbles" aria-hidden="true">
-    <img src="../images/floating/star.png" alt="Floating star" class="size-xl" />
-    <img src="../images/floating/clippy.png" alt="Floating paper clip" class="size-md" />
-    <img src="../images/floating/music.png" alt="Floating music note" class="size-sm" />
-    <img src="../images/floating/jellyfish.png" alt="Floating jellyfish" class="size-lg" />
-    <img src="../images/floating/uranus.png" alt="Floating planet" class="size-md" />
-    <img src="../images/floating/mrdna.png" alt="Floating Mr DNA" class="size-lg" />
-    <img src="../images/floating/computer.png" alt="Floating computer" class="size-lg" />
-    <img src="../images/floating/greencloud1.png" alt="Floating cloud" class="size-lg" />
-    <img src="../images/floating/greencloud2.png" alt="Floating cloud" class="size-md" />
-    <img src="../images/floating/star.png" alt="Floating star" class="size-md" />
-    <img src="../images/floating/music.png" alt="Floating music note" class="size-sm" />
-    <img src="../images/floating/greencloud2.png" alt="Floating cloud" class="size-lg" />
-    <img src="../images/floating/jellyfish.png" alt="Floating jellyfish" class="size-md" />
-    <img src="../images/floating/computer.png" alt="Floating computer" class="size-lg" />
-  </div>
-  <main class="layout">
+  <main class="layout" id="home">
     <section class="profile-panel">
       <div class="profile-card">
         <img src="../images/homepage/faceimage.gif" alt="Profile preview" />
@@ -45,9 +30,63 @@
       <div class="directory">
         <a class="dir-btn" href="./Visual_Vault.html">Visual Vault</a>
         <a class="dir-btn" href="./Flicker_Field.html">Flicker Field</a>
-        <a class="dir-btn" href="./About_Me.html">About me!</a>
       </div>
     </section>
   </main>
+
+  <section class="about-section" id="about" aria-labelledby="intro-heading">
+    <div class="chrome-fragments" aria-hidden="true">
+      <span class="chrome-fragment fragment-one">0011</span>
+      <span class="chrome-fragment fragment-two">web://pinkninja</span>
+    </div>
+
+    <div class="about-layout">
+      <section class="profile-window" aria-labelledby="profile-window-title">
+        <div class="window-bar">
+          <span id="profile-window-title">pixja.exe_1st.gif</span>
+          <div class="window-controls" aria-hidden="true"><b>-</b><b>□</b><b>×</b></div>
+        </div>
+        <div class="profile-photo-wrap">
+          <img src="../images/visual_vault/orig_characters/personas_1/pixja.exe_2/1st.gif" alt="Pixja.exe first persona" />
+        </div>
+      </section>
+
+      <section class="intro-note">
+        <p class="note-tape">HELLO, INTERNET!</p>
+        <h2 id="intro-heading">Hey, I'm Pink Ninja.</h2>
+        <p>I make digital art, animations, characters, and whatever catches my imagination along the way.</p>
+        <p>This little corner of the web is where I collect my creations, experiments, and favourite things.</p>
+      </section>
+
+      <aside class="mini-window interests-window">
+        <div class="window-bar small-bar">
+          <span>interests.exe</span>
+          <div class="window-controls" aria-hidden="true"><b>×</b></div>
+        </div>
+        <div class="window-content">
+          <p>ART // DESIGN</p>
+          <p>ANIMATION</p>
+          <p>CHARACTER DESIGN</p>
+          <p>OLD INTERNET</p>
+        </div>
+      </aside>
+
+      <section class="webcore-card" aria-label="Pink Ninja introduction">
+        <div class="card-tab">PROFILE DATA</div>
+        <dl>
+          <div><dt>NAME</dt><dd>Pink Ninja</dd></div>
+          <div><dt>MEDIUM</dt><dd>Art + Animation</dd></div>
+          <div><dt>LOCATION</dt><dd>The Internet</dd></div>
+        </dl>
+      </section>
+
+      <div class="pixel-heart" aria-hidden="true">♥</div>
+
+      <section class="guestbook-card">
+        <p>thank you for visiting my page!</p>
+        <a href="#home">[ back to top ]</a>
+      </section>
+    </div>
+  </section>
 </body>
 </html>
