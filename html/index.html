@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pink Ninja's portfolio and about page" />
+  <title>PinkNinja'sPortfolio</title>
+  <link rel="stylesheet" href="../style/index.css" />
+  <link rel="stylesheet" href="../style/About_Section.css" />
+  <link rel="stylesheet" href="../style/loading.css" />
+  <script src="../script/loading.js" defer></script>
+  <script src="../script/homepage.js" defer></script>
+</head>
+<body>
+  <div class="sky-bg" aria-hidden="true">
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+  </div>
+  <main class="layout" id="home">
+    <section class="profile-panel">
+      <div class="profile-card">
+        <img src="../images/homepage/faceimage.gif" alt="Profile preview" />
+      </div>
+    </section>
+
+    <section class="content-panel">
+      <div class="speech-bubble">
+        <p>Hey, hello, howdi, hi! I’m the Pink Ninja. I create digital art, animations, and much more!</p>
+      </div>
+
+      <div class="directory">
+        <a class="dir-btn" href="./Visual_Vault.html">Visual Vault</a>
+        <a class="dir-btn" href="./Flicker_Field.html">Flicker Field</a>
+      </div>
+    </section>
+  </main>
+
+  <section class="about-section" id="about" aria-labelledby="intro-heading">
+    <div class="chrome-fragments" aria-hidden="true">
+      <span class="chrome-fragment fragment-one">0011</span>
+      <span class="chrome-fragment fragment-two">web://pinkninja</span>
+    </div>
+
+    <div class="about-layout">
+      <section class="profile-window" aria-labelledby="profile-window-title">
+        <div class="window-bar">
+          <span id="profile-window-title">pixja.exe.gif</span>
+          <span class="profile-click-sign" aria-hidden="true">Click Me! ↓</span>
+          <div class="window-controls" aria-hidden="true"><b>-</b><b>□</b><b>×</b></div>
+        </div>
+        <div class="profile-photo-wrap">
+          <button class="profile-fact-trigger" type="button" aria-label="Show a fun fact about me" aria-expanded="false" aria-controls="fun-fact-bubble">
+            <img src="../images/visual_vault/orig_characters/personas_1/pixja.exe_2/1st.gif" alt="Pixja.exe first persona" />
+          </button>
+        </div>
+        <p class="fun-fact-bubble" id="fun-fact-bubble" role="status" hidden></p>
+      </section>
+
+      <section class="intro-note">
+        <p class="note-tape">HELLO, INTERNET!</p>
+        <h2 id="intro-heading">A little more about me...</h2>
+        <p>I specialize in creating digital art and 2D animations. This includes character design, storyboarding, frame-by-frame animation and tweening animation.</p>
+        <p>I use a lot of different software programs to bring my ideas to life, including Adobe Photoshop, Toon Boom Harmony, Storyboard Pro, Adobe Premiere Pro, Adobe Audition, Pixilart.com, Krita and Maya.</p>
+      </section>
+
+      <aside class="mini-window profile-data-window" aria-labelledby="profile-data-title">
+        <div class="window-bar small-bar">
+          <span id="profile-data-title">Profile Data</span>
+          <div class="window-controls" aria-hidden="true"><b>×</b></div>
+        </div>
+        <div class="window-content">
+          <dl>
+            <div><dt>NAME</dt><dd>Pink Ninja</dd></div>
+            <div><dt>AGE</dt><dd>YOUNG ADULT</dd></div>
+            <div><dt>LOCATION</dt><dd>MELBOURNE, AUSTRALIA</dd></div>
+          </dl>
+        </div>
+      </aside>
+
+      <section class="guestbook-card">
+        <p>thank you for visiting my page!</p>
+        <a href="#home">[ back to top ]</a>
+      </section>
+    </div>
+  </section>
+</body>
+</html>
