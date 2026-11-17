@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../style/About_Section.css" />
   <link rel="stylesheet" href="../style/loading.css" />
   <script src="../script/loading.js" defer></script>
+  <script src="../script/homepage.js" defer></script>
 </head>
 <body>
   <div class="sky-bg" aria-hidden="true">
@@ -44,11 +45,15 @@
       <section class="profile-window" aria-labelledby="profile-window-title">
         <div class="window-bar">
           <span id="profile-window-title">pixja.exe.gif</span>
+          <span class="profile-click-sign" aria-hidden="true">Click Me! ↓</span>
           <div class="window-controls" aria-hidden="true"><b>-</b><b>□</b><b>×</b></div>
         </div>
         <div class="profile-photo-wrap">
-          <img src="../images/visual_vault/orig_characters/personas_1/pixja.exe_2/1st.gif" alt="Pixja.exe first persona" />
+          <button class="profile-fact-trigger" type="button" aria-label="Show a fun fact about me" aria-expanded="false" aria-controls="fun-fact-bubble">
+            <img src="../images/visual_vault/orig_characters/personas_1/pixja.exe_2/1st.gif" alt="Pixja.exe first persona" />
+          </button>
         </div>
+        <p class="fun-fact-bubble" id="fun-fact-bubble" role="status" hidden></p>
       </section>
 
       <section class="intro-note">
